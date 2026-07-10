@@ -1,0 +1,10 @@
+{
+  "name": "com.sinbadstudios.shared-systems",
+  "version": "1.0.0",
+  "displayName": "Sinbad Studios Shared Systems",
+  "description": "A collection of shared networking systems, runtime services, utilities, and reusable tools for Unity projects.",
+  "unity": "6000.2.8f1",
+  "author": {
+    "name": "Sinbad Studios"
+  }
+}

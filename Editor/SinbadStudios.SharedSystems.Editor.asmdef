@@ -1,0 +1,9 @@
+{
+  "name": "SinbadStudios.SharedSystems.Editor",
+  "references": [
+    "SinbadStudios.SharedSystems"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ]
+}
