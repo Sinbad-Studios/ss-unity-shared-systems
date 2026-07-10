@@ -3,7 +3,8 @@
   "rootNamespace": "SinbadStudios.SharedSystems",
   "references": [
     "Unity.InputSystem",
-    "Unity.TextMeshPro"
+    "Unity.TextMeshPro",
+    "Fusion.Unity"
   ],
   "autoReferenced": true
 }
