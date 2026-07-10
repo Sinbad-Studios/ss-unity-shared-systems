@@ -24,7 +24,7 @@ The scripts in this package reference the following. Make sure the corresponding
 
 You can also use **Window > Package Manager > + > Add package from git URL** in the Unity Editor.
 
-Git URL: https://github.com/SinbadStudios/ss-unity-shared-systems.git
+Git URL: https://github.com/Sinbad-Studios/ss-unity-shared-systems.git
 
 ## Assembly Definitions
 
