@@ -1,4 +1,9 @@
 {
   "name": "SinbadStudios.SharedSystems",
-  "rootNamespace": "SinbadStudios.SharedSystems"
+  "rootNamespace": "SinbadStudios.SharedSystems",
+  "references": [
+    "Unity.InputSystem",
+    "Unity.TextMeshPro"
+  ],
+  "autoReferenced": true
 }
