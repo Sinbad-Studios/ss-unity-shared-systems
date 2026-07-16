@@ -54,7 +54,7 @@ Git URL: https://github.com/Sinbad-Studios/ss-unity-shared-systems.git
 | --- | --- |
 | `NetworkManager` | Central Fusion session manager (a `MonoSingleton`). Handles lobby join, direct/auto session matchmaking (1v1 Shared mode), reconnection with retries, scene loading, and player join/leave. Communicates via `GameEventBus`. |
 | `NetworkEvents` | Event data classes used with `GameEventBus` (e.g. `JoinLobbyEvent`, `JoinDirectSessionEvent`, `PlayerJoinedEvent`, `SessionReadyToStartEvent`, `NetworkStatusUpdateEvent`). |
-| `PlayerNetworkController` | Networked player state (`PlayerName`, `UserId`, health, dead/game-over flags) with change callbacks and a `ResetForRematch()` helper. |
+| `PlayerNetworkControllerBase` | Extensible base for networked player state (`PlayerName`, `UserId`, health, dead/game-over flags), with overridable health-change and rematch behavior. Create the concrete `PlayerNetworkController` in the consuming project's `Assets` folder. |
 | `Basic3DNetworkCharacterController` | 3D movement using Fusion's `NetworkCharacterController` and the new Input System. |
 | `URLReader` | Reads session parameters (user id, session id, token, client id) from URL query params in WebGL builds via a JS interop call. |
 | `SessionViewer/FusionSessionViewer` | Joins a lobby and renders the live session list into a UI list, creating/updating/removing entries as sessions change. |
@@ -100,6 +100,33 @@ public class AudioManager : MonoSingleton<AudioManager>
 // Access anywhere
 AudioManager.Instance.DoSomething();
 ```
+
+### Editable player network controller
+
+Create the concrete controller in the consuming project's `Assets` folder so it remains editable:
+
+```csharp
+using SinbadStudios.SharedSystems.Runtime;
+
+public class PlayerNetworkController : PlayerNetworkControllerBase
+{
+    public override void Spawned()
+    {
+        base.Spawned();
+
+        // Add project-specific initialization here.
+    }
+
+    protected override void OnHealthChanged()
+    {
+        base.OnHealthChanged();
+
+        // Update project-specific UI or effects here.
+    }
+}
+```
+
+Attach the concrete `PlayerNetworkController` component to the player network prefab. Call `base.Spawned()` so the shared state initialization and `PlayerNetworkObjectSpawnedEvent` publication still occur.
 
 ### Networking flow
 

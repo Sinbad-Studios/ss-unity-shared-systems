@@ -29,7 +29,7 @@ namespace SinbadStudios.SharedSystems.Runtime
     public class PlayerNetworkObjectSpawnedEvent
     {
         public NetworkObject NetworkObject { get; set; }
-        public PlayerNetworkController PlayerNetworkController { get; set; }
+        public PlayerNetworkControllerBase PlayerNetworkController { get; set; }
     }
 
     public class PlayerLeftEvent
